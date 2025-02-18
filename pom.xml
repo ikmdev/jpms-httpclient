@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -13,18 +12,17 @@
 	</parent>
 
 	<groupId>dev.ikm.jpms</groupId>
-	<artifactId>httpclient</artifactId>
+	<artifactId>httpclient5</artifactId>
 	<packaging>jar</packaging>
-	<version>${core.artifact.version}-${core.artifact.release}</version>
+	<version>5.4.2-r1</version>
 	<description>
-		Builds the httpclient.  Requires the commons logging to be built first and be excluded
-		from any other poms requiring it.
+		Builds the httpclient5. 
 	</description>
 
 	<properties>
 		<!-- change release here-->
-		<core.artifact.version>4.5.14</core.artifact.version>
-		<core.artifact.release>r4</core.artifact.release>
+		<core.artifact.version>5.4.2</core.artifact.version>
+		<core.artifact.release>r1</core.artifact.release>
 
 		<!-- transitive dependency versions -->
 		<httpcore.version>4.4.16</httpcore.version>
@@ -43,6 +41,13 @@
 
 	<!-- transitive dependencies of the repackaged artifact -->
 	<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5 -->
+		<dependency>
+			<groupId>org.apache.httpcomponents.client5</groupId>
+			<artifactId>httpclient5</artifactId>
+			<version>5.4.2</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
