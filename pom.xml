@@ -12,17 +12,18 @@
 	</parent>
 
 	<groupId>dev.ikm.jpms</groupId>
-	<artifactId>httpclient5</artifactId>
+	<artifactId>httpclient</artifactId>
 	<packaging>jar</packaging>
-	<version>5.4.2-r1</version>
+	<version>${core.artifact.version}-${core.artifact.release}</version>
 	<description>
-		Builds the httpclient5. 
+		Builds the httpclient.  Requires the commons logging to be built first and be excluded
+		from any other poms requiring it.
 	</description>
 
 	<properties>
 		<!-- change release here-->
-		<core.artifact.version>5.4.2</core.artifact.version>
-		<core.artifact.release>r1</core.artifact.release>
+		<core.artifact.version>4.5.14</core.artifact.version>
+		<core.artifact.release>r4</core.artifact.release>
 
 		<!-- transitive dependency versions -->
 		<httpcore.version>4.4.16</httpcore.version>
@@ -41,13 +42,6 @@
 
 	<!-- transitive dependencies of the repackaged artifact -->
 	<dependencies>
-	<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5 -->
-		<dependency>
-			<groupId>org.apache.httpcomponents.client5</groupId>
-			<artifactId>httpclient5</artifactId>
-			<version>5.4.2</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
@@ -222,7 +216,7 @@
 							<target>
 								<echo message="renaming sources file" />
 								<copy file="${project.build.directory}/dependency/${project.artifactId}-${core.artifact.version}-sources.jar"
-									  tofile="${project.build.directory}/${project.artifactId}-${project.version}-sources.jar" />
+									  tofile="${project.build.directory}/${project.artifactId}-${core.artifact.version}-${core.artifact.release}-sources.jar" />
 							</target>
 						</configuration>
 					</execution>
@@ -236,7 +230,7 @@
 							<target>
 								<echo message="renaming javadoc file" />
 								<copy file="${project.build.directory}/dependency/${project.artifactId}-${core.artifact.version}-javadoc.jar"
-									  tofile="${project.build.directory}/${project.artifactId}-${project.version}-javadoc.jar" />
+									  tofile="${project.build.directory}/${project.artifactId}-${core.artifact.version}-${core.artifact.release}-javadoc.jar" />
 							</target>
 						</configuration>
 					</execution>					
